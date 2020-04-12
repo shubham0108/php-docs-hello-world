@@ -10,7 +10,7 @@ variables:
   serviceConnectionToAzure: connection-to-myapp-rg
   # the name of your web app here is the same one you used above
   # when you created the web app using the Azure CLI
-  appName: myapp-rg
+  appName: testpipelinelohachan
 
 trigger:
 - master
