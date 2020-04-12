@@ -3,6 +3,15 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+# at the top of your YAML file 
+# set some variables that you'll need when you deploy
+variables:
+  # the name of the service connection that you created above
+  serviceConnectionToAzure: testpipelinelohachan
+  # the name of your web app here is the same one you used above
+  # when you created the web app using the Azure CLI
+  appName: my-app-name
+
 trigger:
 - master
 
@@ -11,7 +20,27 @@ pool:
 
 steps:
 - task: ArchiveFiles@2
+
+# add these as the last steps (below all the other `task` items under `steps`)
+# to deploy to your app service
+- task: ArchiveFiles@1
+  displayName: Archive files
   inputs:
-    rootFolderOrFile: '$(build.sourcesDirectory)'
+    rootFolder: $(System.DefaultWorkingDirectory)
     includeRootFolder: false
+    archiveType: zip
+
+- task: PublishBuildArtifacts@1
+  displayName: Publish Artifact
+  inputs:
+    PathtoPublish: $(build.artifactstagingdirectory)
+
+- task: AzureWebApp@1
+  displayName: Azure Web App Deploy
+  inputs:
+    azureSubscription: $(serviceConnectionToAzure)
+    appType: webAppLinux
+    appName: $(appName)
+    package: $(build.artifactstagingdirectory)/**/*.zip
+
 - task: PublishBuildArtifacts@1
