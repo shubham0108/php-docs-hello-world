@@ -22,10 +22,7 @@ jobs:
         
     - name: Create an issue
     - uses: JasonEtco/create-an-issue@v2.4.0
-       with:
+        with:
     # GitHub handle of the user(s) to assign the issue (comma-separated)
-    assignees: shubham0108
-    # Number of the milestone to assign the issue to
-    milestone: # optional
-    # The name of the file to use as the issue template
-    filename: # optional, default is .github/ISSUE_TEMPLATE.md
+        assignees: shubham0108
+
