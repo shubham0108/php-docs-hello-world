@@ -22,7 +22,6 @@ jobs:
         
     - name: Create an issue
     - uses: JasonEtco/create-an-issue@v2.4.0
-        with:
-    # GitHub handle of the user(s) to assign the issue (comma-separated)
+      with:
         assignees: shubham0108
 
