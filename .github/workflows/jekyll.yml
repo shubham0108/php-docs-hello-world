@@ -19,9 +19,12 @@ jobs:
         -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
         jekyll/builder:latest /bin/bash -c "chmod 777 /srv/jekyll && jekyll build --future"
         
-        
     - name: Create an issue
-    - uses: JasonEtco/create-an-issue@v2.4.0
+      uses: JasonEtco/create-an-issue@v2.4.0
       with:
+        # GitHub handle of the user(s) to assign the issue (comma-separated)
         assignees: shubham0108
-
+        # Number of the milestone to assign the issue to
+        milestone: test
+        # The name of the file to use as the issue template
+        filename: .github/ISSUE_TEMPLATE.md
