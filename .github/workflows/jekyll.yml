@@ -9,12 +9,4 @@ jobs:
       - uses: JasonEtco/create-an-issue@v2
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  issues:
-    types: [closed]
   
-    name: Triage
-    runs-on: ubuntu-latest
-    steps:
-    - uses: Logerfo/triage-action@0.0.2
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
