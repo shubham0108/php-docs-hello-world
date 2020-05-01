@@ -7,7 +7,7 @@ on:
         steps:
         - uses: Logerfo/triage-action@0.0.2
         with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
+            github-token: ${{ secrets.GITHUB_TOKEN }}
     push:
 name: Create an issue on push
 jobs:
