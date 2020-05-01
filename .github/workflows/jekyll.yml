@@ -1,8 +1,6 @@
 on:
     issues:
         types: [closed]
-        name: Create Another Milestone
-        uses: WyriHaximus/github-action-create-milestone@0.1.0
-        with:
- 
-            title: Approval Completed
+        name: Ganeshpl Hello World
+        uses: GaneshSPatil/hello-world-javascript-action@v1.2.0
+
