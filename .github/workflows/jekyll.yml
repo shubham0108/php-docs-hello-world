@@ -1,24 +1,9 @@
-name: Jekyll site CI
-
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
-
+on: [push]
+name: Create an issue on push
 jobs:
-  issue:
-
+  stuff:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v2
-    - uses: JasonEtco/create-an-issue@v2
-    - name: Create an issue
-      env:
+      - uses: JasonEtco/create-an-issue@v2
+        env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        # GitHub handle of the user(s) to assign the issue (comma-separated)
-        assignees: shubham0108
-        # Number of the milestone to assign the issue to
-        milestone: test 
