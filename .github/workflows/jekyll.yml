@@ -8,3 +8,12 @@ jobs:
       - uses: JasonEtco/create-an-issue@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
+
+  build:
+    name: Triage
+    runs-on: ubuntu-16.04
+    steps:
+    - uses: Logerfo/triage-action@0.0.2
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
