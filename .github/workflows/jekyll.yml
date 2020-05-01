@@ -20,7 +20,9 @@ jobs:
         jekyll/builder:latest /bin/bash -c "chmod 777 /srv/jekyll && jekyll build --future"
         
     - name: Create an issue
-      uses: JasonEtco/create-an-issue@v2.4.0
+    - uses: actions/checkout@v2
+    - uses: JasonEtco/create-an-issue@v2.4.0
+      
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
