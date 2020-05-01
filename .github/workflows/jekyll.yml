@@ -1,9 +1,6 @@
 on:
     issues:
         types: [closed]
-   
-    		
-     
 name: Create an issue on push
 jobs:
   stuff:
