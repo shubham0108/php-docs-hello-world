@@ -1,13 +1,17 @@
-on:
+on: 
+         
     issues:
         types: [closed]
-name: Create an issue on push
 jobs:
-  stuff:
+  build:
+
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
-      - uses: JasonEtco/create-an-issue@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   
+    - uses: actions/checkout@v2
+    - name: Build the site once again
+      run: |
+        docker run \
+        -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
+        jekyll/builder:latest /bin/bash -c "chmod 777 /srv/jekyll && jekyll build --future"  
             
