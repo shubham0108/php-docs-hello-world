@@ -1,6 +1,7 @@
 on:
     repository_dispatch:
         types: [start-example-workflow]
+        info: ${{ github.event.client_payload.example-key }}
             
 jobs:
   stuff:
