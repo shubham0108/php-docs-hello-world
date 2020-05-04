@@ -1,8 +1,8 @@
 on:
     repository_dispatch:
-        types: [start-example-workflow]
-        info: ${{ github.event.client_payload.example-key }}
-            
+        types : push
+        
+name: Create an issue on push       
 jobs:
   stuff:
     runs-on: ubuntu-latest
