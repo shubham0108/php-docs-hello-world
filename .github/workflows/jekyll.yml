@@ -1,6 +1,7 @@
 on:
     repository_dispatch:
-      name: Create an issue on repository dispatch
+        types: [start-example-workflow]
+            
 jobs:
   stuff:
     runs-on: ubuntu-latest
