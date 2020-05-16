@@ -6,7 +6,7 @@ jobs:
     steps:
       - name: Variable Demo
         id: step_one
-        run : echo"::set-output name=this::hello"
+        run : echo"::set-output name='this'::'hello'"
       - name: Test it
         run: echo ${{ steps.step_one.outputs.this }}  
      
