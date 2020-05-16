@@ -12,7 +12,7 @@ jobs:
       - uses: CamiloGarciaLaRotta/watermelon-http-client@v1
           with:
           
-            url: ${{steps.step_one.outputs.this}}
+            url: echo ${{ steps.step_one.outputs.this }}
             method: post
             headers: '{"Content-Type": "application/json"}'
             data: '{ "to": "lohachan0108@gmail.com"}'
