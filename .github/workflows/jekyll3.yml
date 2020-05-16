@@ -4,9 +4,13 @@ jobs:
   stuff:
     runs-on: ubuntu-latest
     steps:
-      - name: Variable Demo
-        id: step_one
-        run : echo"::set-output name='this'::'hello'"
-      - name: Test it
-        run: echo ${{ steps.step_one.outputs.this }}  
-     
+   
+          
+        - uses: CamiloGarciaLaRotta/watermelon-http-client@v1
+          with:
+          
+            url: 'https://prod-56.westus.logic.azure.com:443/workflows/3be0d0c1205d4b5aa5ca67d992916643/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=AW8pY5d7dZaayU_E_ex2_ZMd05MgjQ-UpH6My0ebau0'
+            method: post
+            headers: '{"Content-Type": "application/json"}'
+            data: '{ "to": "lohachan0108@gmail.com"}'
+
